@@ -32,12 +32,10 @@ router.post('/contact', (request, response) => {
 
 	const mail = {
 		from: email,
-		to: process.env.EMAIL_ADDRESS,
+		to: 'athirsonarceus@gmail.com',
 		subject: 'Contact Form Submission - Portfolio',
-		html: `<p>
-						Name: ${firstName} ${lastName}
-           	From: ${email} - ${phone}
-					</p>
+		html: `<p>Name: ${firstName} ${lastName}</p>
+           <p>From: ${email} - ${phone}</p>
            ${message}`
 	}
 
