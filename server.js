@@ -12,14 +12,12 @@ app.use(express.json())
 app.use('/', router)
 
 app.listen(5000, () => console.log('Server Running'))
-console.log(process.env.EMAIL_ADDRESS)
-console.log(process.env.EMAIL_PASSWORD)
 
 const contactEmail = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: process.env.EMAIL_ADDRESS,
-		pass: process.env.EMAIL_PASSWORD
+		user: 'athirsonarceus@gmail.com',
+		pass: 'eyyvwyheilecpabw'
 	}
 })
 
