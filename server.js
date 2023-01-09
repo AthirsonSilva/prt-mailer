@@ -31,6 +31,10 @@ contactEmail.verify((error) => {
 	}
 })
 
+router.get('/', (request, response) => {
+	response.send('Hi there, you are not supposed to use my service like this')
+})
+
 router.post('/contact', (request, response) => {
 	console.log(request)
 	const { name, email, phone, message } = request.body
