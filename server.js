@@ -17,23 +17,19 @@ app.use('/', router)
 
 app.listen(PORT, () => console.log('Server Running on port: ' + PORT))
 
-try {
-	const contactEmail = nodemailer.createTransport({
-		service: 'gmail',
-		auth: {
-			user: TARGET_EMAIL,
-			pass: TARGET_PASSWORD
-		}
-	})
+const contactEmail = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: TARGET_EMAIL,
+		pass: TARGET_PASSWORD
+	}
+})
 
-	contactEmail.verify((error) => {
-		if (error) {
-			console.log(error)
-		}
-	})
-} catch (error) {
-	console.log(error)
-}
+contactEmail.verify((error) => {
+	if (error) {
+		console.log(error)
+	}
+})
 
 router.get('/', (request, response) => {
 	response.send('Hello World! This is the server for my portfolio.')
