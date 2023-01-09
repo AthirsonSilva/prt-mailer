@@ -2,6 +2,7 @@
 	"name": "prt-mailer",
 	"version": "0.1.0",
 	"private": true,
+	"main": "server.js",
 	"dependencies": {
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.3",
