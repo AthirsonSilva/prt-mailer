@@ -24,36 +24,32 @@ const contactEmail = nodemailer.createTransport({
 contactEmail.verify((error) => {
 	if (error) {
 		console.log(error)
-	} else {
-		console.log('Ready to Send')
 	}
 })
 
-router.get('/', (request, response) => {
-	response.send('Hi there, you are not supposed to use my service like this')
-})
-
 router.post('/contact', (request, response) => {
-	console.log(request)
-	const { name, email, phone, message } = request.body
+	const { firstName, lastName, email, phone, message } = request.body
 
 	const mail = {
 		from: email,
 		to: process.env.EMAIL_ADDRESS,
 		subject: 'Contact Form Submission - Portfolio',
-		html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`
+		html: `<p>
+						Name: ${firstName} ${lastName}
+           	From: ${email} - ${phone}
+					</p>
+           ${message}`
 	}
 
 	contactEmail.sendMail(mail, (error) => {
 		if (error) {
 			response.json(error)
 		} else {
-			response.json({ code: 200, status: 'Message Sent Successfully!' })
-
-			console.log('Message Sent')
+			response.json({
+				code: 200,
+				status: 'Message Sent Successfully!',
+				mail
+			})
 		}
 	})
 })
