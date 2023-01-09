@@ -9,6 +9,7 @@ const app = express()
 const TARGET_EMAIL = process.env.EMAIL_ADDRESS || 'athirsonarceus@gmail.com'
 const TARGET_PASSWORD = process.env.EMAIL_PASSWORD || 'eyyvwyheilecpabw'
 const PORT = process.env.PORT || 5000
+console.log([TARGET_EMAIL, TARGET_PASSWORD, PORT])
 
 app.use(cors())
 app.use(express.json())
@@ -33,6 +34,10 @@ try {
 } catch (error) {
 	console.log(error)
 }
+
+router.get('/', (request, response) => {
+	response.send('Hello World! This is the server for my portfolio.')
+})
 
 router.post('/contact', (request, response) => {
 	try {
