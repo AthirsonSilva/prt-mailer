@@ -16,12 +16,12 @@ export const contactEmail = createTransport({
 		pass: TARGET_PASSWORD
 	}
 })
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 console.log([TARGET_EMAIL, TARGET_PASSWORD, PORT])
 
 app.use(cors())
 app.use(json())
-app.use('/', router)
+app.use('/api/v1/email', router)
 
 app.listen(PORT, () => console.log('Server Running on port: ' + PORT))
 

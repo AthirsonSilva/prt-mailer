@@ -7,7 +7,7 @@ router.get('/', (request: Request, response: Response) => {
 	response.send('Hello World! This is the server for my portfolio.')
 })
 
-router.post('/contact', (request: Request, response: Response) => {
+router.post('/', (request: Request, response: Response) => {
 	try {
 		const { ownerRef, fromEmail, bodyEmail } = request.body
 
