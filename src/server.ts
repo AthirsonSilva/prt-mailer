@@ -23,7 +23,7 @@ app.use(cors())
 app.use(json())
 app.use('/api/v1/email', router)
 
-app.listen(PORT, () => console.log('Server Running on port: ' + PORT))
+app.listen(PORT, () => console.log('Server up and running on port: ' + PORT))
 
 contactEmail.verify((error) => {
 	if (error) {
